@@ -8,42 +8,47 @@
 FoamFile
 {
     format      ascii;
-    class       volScalarField;
-    object      nuTilda;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
-
-internalField   uniform 0;
-
-boundaryField
-{
-    inlet
-    {
-        type            fixedValue;
-        value           uniform 0;
-    }
-
+5
+(
     outlet
     {
-        type            zeroGradient;
+        type            patch;
+        nFaces          55;
+        startFace       13452;
     }
-
-    upperWall
+    inlet
     {
-        type            zeroGradient;
+        type            patch;
+        nFaces          40;
+        startFace       13507;
     }
-
     lowerWall
     {
-        type            zeroGradient;
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          148;
+        startFace       13547;
     }
-
+    upperWall
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          133;
+        startFace       13695;
+    }
     frontAndBack
     {
         type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          13640;
+        startFace       13828;
     }
-}
+)
 
 // ************************************************************************* //
