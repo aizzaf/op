@@ -9,41 +9,41 @@ FoamFile
 {
     format      ascii;
     class       volScalarField;
-    location    "0";
-    object      k;
+    object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 0.2;
+internalField   uniform 0;
 
 boundaryField
 {
     inlet
     {
-        type            fixedValue;
-        value           uniform 0.2;
+        type            zeroGradient;
     }
+
     outlet
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+
+    upperWall
     {
         type            zeroGradient;
     }
-    upperWall
-    {
-        type            kqRWallFunction;
-        value           uniform 0.2;
-    }
+
     lowerWall
     {
-        type            kqRWallFunction;
-        value           uniform 0.2;
+        type            zeroGradient;
     }
+
     frontAndBack
     {
         type            empty;
     }
 }
-
 
 // ************************************************************************* //

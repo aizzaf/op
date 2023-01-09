@@ -8,41 +8,25 @@
 FoamFile
 {
     format      ascii;
-    class       volScalarField;
-    location    "0";
-    object      k;
+    class       dictionary;
+    location    "constant";
+    object      momentumTransport;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+simulationType RAS;
 
-internalField   uniform 0.2;
-
-boundaryField
+RAS
 {
-    inlet
-    {
-        type            fixedValue;
-        value           uniform 0.2;
-    }
-    outlet
-    {
-        type            zeroGradient;
-    }
-    upperWall
-    {
-        type            kqRWallFunction;
-        value           uniform 0.2;
-    }
-    lowerWall
-    {
-        type            kqRWallFunction;
-        value           uniform 0.2;
-    }
-    frontAndBack
-    {
-        type            empty;
-    }
+    // Tested with kEpsilon, realizableKE, kOmega, kOmega2006, kOmegaSST, v2f,
+    // ShihQuadraticKE, LienCubicKE.
+    model           kEpsilon;
+
+    turbulence      on;
+
+    printCoeffs     on;
+
+    viscosityModel  Newtonian;
 }
 
 
