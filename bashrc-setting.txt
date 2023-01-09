@@ -3,4 +3,3 @@ add this line in most bottom .bashrc file in home
 source /opt/openfoam10/etc/bashrc
 
 then restart terminal
-

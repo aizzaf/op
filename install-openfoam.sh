@@ -3,4 +3,5 @@ sudo add-apt-repository http://dl.openfoam.org/ubuntu
 sudo apt-get update
 sudo apt-get -y install openfoam10
 sudo apt upgrade -y
-sudo apt autoremove
+sudo apt autoremove -y
+
