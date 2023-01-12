@@ -10,7 +10,7 @@ FoamFile
     format      ascii;
     class       volScalarField;
     location    "0";
-    object      nut;
+    object      nuSgs;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -22,23 +22,19 @@ boundaryField
 {
     inlet
     {
-        type            calculated;
-        value           uniform 0;
+        type            zeroGradient;
     }
     outlet
     {
-        type            calculated;
-        value           uniform 0;
+        type            zeroGradient;
     }
     upperWall
     {
-        type            nutkWallFunction;
-        value           uniform 0;
+        type            zeroGradient;
     }
     lowerWall
     {
-        type            nutkWallFunction;
-        value           uniform 0;
+        type            zeroGradient;
     }
     frontAndBack
     {
